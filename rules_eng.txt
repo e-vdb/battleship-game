@@ -1,0 +1,15 @@
+GOAL
+Sink the fleet.
+
+FLEET
+
+*Class*		*Size* 	*Number*
+Carrier		5	1
+Battleship	4	1
+Cruiser		3	3
+Destroyer	2	3
+Submarine	1	2
+	
+GAMEPLAY
+
+- Just click on the case.

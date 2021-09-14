@@ -11,4 +11,8 @@ To learn more about this game, visit https://en.wikipedia.org/wiki/Battleship_(g
 Sink the fleet within minimal time.
 
 ## Repository content
-In construction
+* battleship_1player : Python 3 script
+* about.txt : plain text document that contains licence information
+* rules_eng.txt : plain text document that explains how to play the game
+
+## Tkinter interface

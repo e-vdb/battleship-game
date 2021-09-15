@@ -15,7 +15,7 @@ Sink the fleet within minimal time.
 * about.txt : plain text document that contains copyright and license information
 * rules_eng.txt : plain text document that explains how to play the game
 
-## Tkinter interface
+## Tkinter interface 1 player mode
 
 ### Interface
 

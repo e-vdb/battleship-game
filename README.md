@@ -19,7 +19,24 @@ Sink the fleet before the computer.
 * about.txt : plain text document that contains copyright and license information
 * rules_eng.txt : plain text document that explains how to play the game
 
-## Tkinter interface 1 player mode
+
+## Tkinter interface mode versus AI
+
+### Interface
+
+Two 10x10 grids
+
+* Player grid with ships
+* Computer grid
+
+![GUI_vsAI_1](https://user-images.githubusercontent.com/82372483/133804656-fd3cd725-fc82-499e-aad9-f7f459399ced.png)
+
+### Example of game
+
+![GUI_vsAI](https://user-images.githubusercontent.com/82372483/133804628-12d3bd5d-0626-4702-9e2f-016ba2b5bbfc.png)
+
+
+## Tkinter interface 1 player (solo mode)
 
 ### Interface
 

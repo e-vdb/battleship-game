@@ -10,8 +10,12 @@ To learn more about this game, visit https://en.wikipedia.org/wiki/Battleship_(g
 ### 1 player (solo mode)
 Sink the fleet within minimal time.
 
+### Versus AI
+Sink the fleet before the computer.
+
 ## Repository content
-* battleship_1player : Python 3 script
+* battleship_1player : Python 3 script for solo mode
+* battleship_vsAI : Python 3 script for versus AI mode
 * about.txt : plain text document that contains copyright and license information
 * rules_eng.txt : plain text document that explains how to play the game
 

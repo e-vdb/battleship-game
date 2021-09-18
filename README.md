@@ -11,7 +11,7 @@ To learn more about this game, visit https://en.wikipedia.org/wiki/Battleship_(g
 Sink the fleet within minimal time.
 
 ### Versus AI
-Sink the fleet before the computer.
+Sink the opposing computer's fleet before the computer destroys your fleet. 
 
 ## Repository content
 * battleship_1player : Python 3 script for solo mode

@@ -26,8 +26,8 @@ Sink the opposing computer's fleet before the computer destroys your fleet.
 
 Two 10x10 grids
 
-* Player grid with ships
-* Computer grid
+* Player's grid with ships
+* Computer's grid
 
 ![GUI_vsAI_1](https://user-images.githubusercontent.com/82372483/133804656-fd3cd725-fc82-499e-aad9-f7f459399ced.png)
 

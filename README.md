@@ -1,8 +1,15 @@
 # battleship-game
 
 ## Summary
-Tkinter implementation of battleship game.
 
+Battleship game for one player.
+
+Code written in python3 with graphics user interface (GUI) using Tkinter.
+
+
+## Battleship-game
+
+Battleship is a *guessing-game*. 
 To learn more about this game, visit https://en.wikipedia.org/wiki/Battleship_(game)
 
 ## Game modes

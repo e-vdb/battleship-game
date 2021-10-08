@@ -39,7 +39,9 @@ Two 10x10 grids
 ![GUI_vsAI_1](https://user-images.githubusercontent.com/82372483/133804656-fd3cd725-fc82-499e-aad9-f7f459399ced.png)
 
 ### Example of game
-
+Colour legend:
+* Blue: water
+* Red : hit
 ![GUI_vsAI](https://user-images.githubusercontent.com/82372483/133804628-12d3bd5d-0626-4702-9e2f-016ba2b5bbfc.png)
 
 

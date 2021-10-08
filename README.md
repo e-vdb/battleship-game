@@ -40,8 +40,11 @@ Two 10x10 grids
 
 ### Example of game
 Colour legend:
+* Black : ship
 * Blue: water
 * Red : hit
+
+
 ![GUI_vsAI](https://user-images.githubusercontent.com/82372483/133804628-12d3bd5d-0626-4702-9e2f-016ba2b5bbfc.png)
 
 

@@ -67,5 +67,6 @@ From the GUI you can read How to play? as well as copyright and license informat
 ![MISSED](https://user-images.githubusercontent.com/82372483/133255348-8167a46c-b594-4c26-9001-09765296f35f.png)
 
 ## TASK LIST
+- [ ] Allows user to choose ships location
 - [x] Implement *naive* AI
 - [ ] Implement *intelligent* AI

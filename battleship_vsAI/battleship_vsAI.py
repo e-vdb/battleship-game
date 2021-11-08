@@ -9,6 +9,8 @@ Created on Wed Sep  8 13:43:52 2021
 
 import tkinter as tk
 import random
+from help_GUI import printRules, about
+from ships_positioning import randomShipLocation
 
 haut = 10  # table heigth
 larg = 10  # table width
@@ -24,42 +26,7 @@ AI_playabledList=[i for i in range(1,101)]
 random.shuffle(AI_playabledList)'''
 ships=[[name,lg,nb,symb] for name,lg,nb,symb in zip(name_ships,lg_ships,nb_ships,symbol)]
 
-def placeShipH(row,col,lg,grid,symbol):
-    shipInPlace=True
-    if col+lg>10:
-            shipInPlace=False
-    else:
-        for count in range(lg):
-            if grid[row][col+count]!="E":
-                shipInPlace=False
-    if shipInPlace:
-        for count in range(lg):
-            grid[row][col+count]=symbol
-    return shipInPlace
 
-def placeShipV(row,col,lg,grid,symbol):
-    shipInPlace=True
-    if row+lg>10:
-            shipInPlace=False
-    else:
-        for count in range(lg):
-            if grid[row+count][col]!="E":
-                shipInPlace=False
-    if shipInPlace:
-        for count in range(lg):
-            grid[row+count][col]=symbol
-    return shipInPlace
-
-def randomShipLocation(lg,grid,symbol):
-    indiceL=random.randint(0,9)
-    indiceC=random.randint(0,9)
-    shipInPlace=True
-    posHorV=random.randint(0,1)
-    if posHorV==0:
-        shipInPlace=placeShipH(indiceL,indiceC,lg,grid,symbol)
-    else:
-        shipInPlace=placeShipV(indiceL,indiceC,lg,grid,symbol)
-    return shipInPlace
 
 
 class Grid(object):
@@ -165,27 +132,7 @@ def game():
     gridAI.randomGridShips()
 
    
-############################################################################
-# Help menu
-############################################################################     
-def printRules():
-    ruleWindow=tk.Toplevel()
-    ruleWindow.title("How to play")
-    with open('rules_eng.txt') as f:
-        gameRules=f.read()
-    lab_Rule=tk.Label(ruleWindow,text=gameRules,fg="black", anchor="e", justify=tk.LEFT)
-    lab_Rule.pack(side=tk.TOP)
-    ruleWindow.mainloop()
-
-
-def about():
-    aboutWindow=tk.Toplevel()
-    aboutWindow.title("About") 
-    with open('about.txt') as f:
-        about=f.read()
-    lbl_about=tk.Label(aboutWindow,text=about,fg="black", anchor="e", justify=tk.LEFT)
-    lbl_about.pack(side=tk.TOP)
-    aboutWindow.mainloop()  
+ 
 ############################################################################
 #GUI
 ############################################################################ 

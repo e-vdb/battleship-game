@@ -32,8 +32,8 @@ def attack(root):
 
  
 def click_grid(event):
-    global gridAI,canvas2,game_over,user_can_play
-    if not game_over and user_can_play:
+    global gridAI, gridUser, canvas2, game_over, user_can_play
+    if not gridUser.game_over and not gridAI.game_over and user_can_play:
         case=canvas2.find_closest(event.x, event.y)[0]
         if case not in playedList:
             user_can_play=False
@@ -42,16 +42,6 @@ def click_grid(event):
             x=(case-1)%10
             gridAI.is_attacked(x, y, root, lbl)
             root.after(1000,attack, root)
-
-
-def reset_lbl(lbl):
-    #global lbl
-    lbl.configure(text=messages[0])
-
-def winner():
-    global lbl,game_over
-    game_over=True
-    lbl.configure(text=messages[-1])
 
 
 def game():

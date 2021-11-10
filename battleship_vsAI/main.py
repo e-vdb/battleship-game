@@ -20,7 +20,7 @@ cote = 40  # cell width
 messages=['FIRE',"MISSED","HIT","HIT AND SUNK","ALL SHIPS ARE SUNK + ","Game over"]
 
 def attack(root):
-    global gridUser, gridAI,game_over,user_can_play
+    global gridUser, gridAI,user_can_play
     if not gridUser.game_over and not gridAI.game_over:
         case=AI_playabledList.pop()
         y=(case-1)//10
@@ -32,7 +32,7 @@ def attack(root):
 
  
 def click_grid(event):
-    global gridAI, gridUser, canvas2, game_over, user_can_play
+    global gridAI, gridUser, canvas2, user_can_play
     if not gridUser.game_over and not gridAI.game_over and user_can_play:
         case=canvas2.find_closest(event.x, event.y)[0]
         if case not in playedList:
@@ -45,8 +45,8 @@ def click_grid(event):
 
 
 def game():
-    global gridUser,gridAI,AI_playabledList,playedList,game_over,user_can_play
-    game_over=False
+    global gridUser,gridAI,AI_playabledList,playedList,user_can_play
+    
     user_can_play=True
     playedList=[0]
     AI_playabledList=[i for i in range(1,101)]

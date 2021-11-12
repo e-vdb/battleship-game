@@ -29,8 +29,6 @@ def attack(root):
         user_can_play=True
  
         
-
- 
 def click_grid(event):
     global gridAI, gridUser, canvas2, user_can_play
     if not gridUser.game_over and not gridAI.game_over and user_can_play:
@@ -57,8 +55,7 @@ def game():
     gridAI.reset()
     gridAI.randomGridShips()
 
-   
- 
+
 ############################################################################
 #GUI
 ############################################################################ 

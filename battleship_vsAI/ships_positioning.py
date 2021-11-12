@@ -41,6 +41,7 @@ def placeShipH(row: int, col: int, lg: int, grid: list, symbol: str) -> bool:
             grid[row][col+count] = symbol
     return shipInPlace
 
+
 def placeShipV(row: int, col: int, lg: int , grid: list, symbol: str) -> bool:
     """
     Place the ship vertically if possible.
@@ -76,8 +77,11 @@ def placeShipV(row: int, col: int, lg: int , grid: list, symbol: str) -> bool:
             grid[row+count][col] = symbol
     return shipInPlace
 
+
 def randomShipLocation(lg: int, grid: list, symbol: str) -> bool:
     """
+    Try to place randomly a ship.
+    
     Choose randomly a cell.
     Choose randomly to place the ship horizontally or vertically.
     Try to place the ship using placeShipH (horizontally) or placeShipV (vertically).

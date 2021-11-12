@@ -19,7 +19,18 @@ ships=[[name,lg,nb,symb] for name,lg,nb,symb in zip(name_ships,lg_ships,nb_ships
 messages=['FIRE',"MISSED","HIT","HIT AND SUNK","ALL SHIPS ARE SUNK + ","Game over"]
 
 class Grid(object):
+    """
+    A class for the battleship grid.
+    
+    Methods
+    -----------
+    
+    """
+    
     def __init__(self, can: tk.Canvas):
+        """
+        Constructor.
+        """
         self.grid = [['E' for i in range(10)] for j in range(10)]
         self.game_over = False
         self.remaining_ships = sum(nb_ships)
@@ -28,44 +39,67 @@ class Grid(object):
         self.dic_ships = {}
         for y in range(haut):
             for x in range(larg):
-                self.cell[x][y] = self.can.create_rectangle((x*cote, y*cote, (x+1)*cote, (y+1)*cote), outline="gray", fill="white")
+                self.cell[x][y] = self.can.create_rectangle((x*cote, y*cote, (x+1)*cote, (y+1)*cote), 
+                                                            outline="gray", fill="white")
     
-    def reset(self):
+    def reset(self) -> None:
+        """
+        Reset the grid.
+
+        Returns
+        -------
+        None.
+
+        """
         self.grid = [['E' for i in range(10)] for j in range(10)]
         for y in range(haut):
             for x in range(larg):
                 self.can.itemconfig(self.cell[x][y], fill="white")
         
-    
-    def randomGridShips(self):
-        global ships
-        
+    def randomGridShips(self) -> dict:
+        """
+        Generate randomly a grid with ships.
+
+        Returns
+        -------
+        dict
+            Dictionary with keys = ships name and values = ships length.
+
+        """
         for ship in ships:  
             for nb in range(ship[2]):
-                shipInPlace=False
+                shipInPlace = False
                 while not shipInPlace:
-                    shipInPlace=randomShipLocation(ship[1],self.grid,ship[3]+str(nb))
-                self.dic_ships[ship[3]+str(nb)]=ship[1]
+                    shipInPlace = randomShipLocation(ship[1],self.grid,ship[3]+str(nb))
+                self.dic_ships[ship[3]+str(nb)] = ship[1]
         return self.dic_ships
     
-    def show_ships(self):
+    def show_ships(self) -> None:
+        """
+        Set to black the cells occupied by ships.
+
+        Returns
+        -------
+        None.
+
+        """
         for i in range(10):
             for j in range(10):
                 if self.grid[i][j]!='E':
                     self.can.itemconfig(self.cell[i][j], fill="black")
     
     def is_attacked(self, x, y, root, lbl):
-        cible=self.grid[x][y]
+        cible = self.grid[x][y]
         if cible=='E':
             lbl.configure(text=messages[1])
-            coul='blue'
+            coul = 'blue'
         else:
-            self.dic_ships[cible]-=1
+            self.dic_ships[cible] -= 1
             if self.dic_ships[cible]>0:
                 lbl.configure(text=messages[2])
             else:
                 lbl.configure(text=messages[3])
-                self.remaining_ships-=1 
+                self.remaining_ships -= 1 
             coul="red"
         self.can.itemconfig(self.cell[x][y], fill=coul)
         if self.remaining_ships==0:
@@ -79,10 +113,4 @@ class Grid(object):
 
 
 def reset_lbl(lbl):
-    #global lbl
     lbl.configure(text=messages[0])
-    
-def winner():
-    global lbl,game_over
-    game_over=True
-    lbl.configure(text=messages[-1])

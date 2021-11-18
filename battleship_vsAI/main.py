@@ -20,34 +20,33 @@ cote = 40  # cell width
 messages=['FIRE',"MISSED","HIT","HIT AND SUNK","ALL SHIPS ARE SUNK + ","Game over"]
 
 def attack(root):
-    global gridUser, gridAI,user_can_play
+    global user_can_play
     if not gridUser.game_over and not gridAI.game_over:
-        case=AI_playabledList.pop()
-        y=(case-1)//10
-        x=(case-1)%10
+        case = AI_playabledList.pop()
+        y = (case-1)//10
+        x = (case-1)%10
         gridUser.is_attacked(x, y, root, lbl)
-        user_can_play=True
+        user_can_play = True
  
         
 def click_grid(event):
-    global gridAI, gridUser, canvas2, user_can_play
+    global user_can_play
     if not gridUser.game_over and not gridAI.game_over and user_can_play:
-        case=canvas2.find_closest(event.x, event.y)[0]
+        case = canvas2.find_closest(event.x, event.y)[0]
         if case not in playedList:
-            user_can_play=False
+            user_can_play = False
             playedList.append(case)
-            y=(case-1)//10
-            x=(case-1)%10
+            y = (case-1)//10
+            x = (case-1)%10
             gridAI.is_attacked(x, y, root, lbl)
             root.after(1000,attack, root)
 
 
 def game():
-    global gridUser,gridAI,AI_playabledList,playedList,user_can_play
-    
-    user_can_play=True
-    playedList=[0]
-    AI_playabledList=[i for i in range(1,101)]
+    global AI_playabledList,playedList,user_can_play
+    user_can_play = True
+    playedList = [0]
+    AI_playabledList = [i for i in range(1,101)]
     random.shuffle(AI_playabledList)
     gridUser.reset()
     gridUser.randomGridShips()
@@ -90,10 +89,10 @@ frame2 = tk.Frame(root)
 frame2.pack()
 canvas2 = tk.Canvas(frame2, width=cote*larg, height=cote*haut, highlightthickness=0)
 canvas2.pack()
-canvas2.bind("<Button-1>", click_grid)
+
 
 gridUser = Grid(canvas)
 gridAI = Grid(canvas2)
 game()
-
+canvas2.bind("<Button-1>", click_grid)
 root.mainloop()

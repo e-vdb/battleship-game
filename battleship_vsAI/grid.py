@@ -24,7 +24,16 @@ class Grid(object):
     
     Methods
     -----------
-    
+    reset
+        Reset the grid.
+    randomGridShips
+        Generate randomly a grid with ships.
+    show_ships
+        Set to black the cells occupied by ships.
+    is_attacked
+        Update the canvas after a shot.
+    end_game
+        Update the label to indicate 'Game over'.
     """
     
     def __init__(self, can: tk.Canvas):
@@ -88,7 +97,29 @@ class Grid(object):
                 if self.grid[i][j]!='E':
                     self.can.itemconfig(self.cell[i][j], fill="black")
     
-    def is_attacked(self, x, y, root, lbl):
+    def is_attacked(self, x, y, root, lbl) -> None:
+        """
+        Update the canvas after a shot.
+        
+        Update the color of the cell according to the state.
+        Update the label that indicates the result of the shot.
+
+        Parameters
+        ----------
+        x : int
+            Row index of the cell.
+        y : int
+            Column index of the cell.
+        root : tk.Tk
+            .
+        lbl : tk.Label
+            Message that indicates the result of the shot.
+
+        Returns
+        -------
+        None.
+
+        """
         cible = self.grid[x][y]
         if cible=='E':
             lbl.configure(text=messages[1])
@@ -108,6 +139,19 @@ class Grid(object):
             root.after(1000,reset_lbl, lbl)
     
     def end_game(self, lbl):
+        """
+        Update the label to indicate 'Game over'.
+
+        Parameters
+        ----------
+        lbl : tk.Label
+            Message that indicates the instructions
+
+        Returns
+        -------
+        None.
+
+        """
         lbl.configure(text=messages[-1])
         self.game_over = True
 
